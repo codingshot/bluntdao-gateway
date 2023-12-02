@@ -75,8 +75,8 @@ export function DesktopNavigation(props) {
           <Logotype />
         </Link>
         <div className="navigation-section">
-          <NavigationButton route="/">Home</NavigationButton>
-          <NavigationButton route="/edit">Editor</NavigationButton>
+          <NavigationButton route="/">Feed</NavigationButton>
+          <NavigationButton route="/bluntdao.near/widget/BluntDAO.Holders.OGValidators">Members</NavigationButton>
           {false &&           <NavigationButton href={props.documentationHref}>
             Docs
             <ArrowUpRight />
