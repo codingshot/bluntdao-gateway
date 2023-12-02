@@ -81,6 +81,8 @@ export function DesktopNavigation(props) {
             Docs
             <ArrowUpRight />
           </NavigationButton> }
+          
+          <NavigationButton route="/bluntdao.near/widget/DAO.Dashboard" props={{daoId: "blunt.sputnik-dao.near"}}>DAO</NavigationButton>
 
         </div>
         <div className="user-section">

@@ -59,7 +59,6 @@ export function Navigation(props) {
       >
         {false &&<NearSocialLogo />}
         <BluntDAOLogo />
-        
       </Link>
       {props.signedIn ? (
         <div className="d-flex">
