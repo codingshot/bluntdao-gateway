@@ -77,10 +77,11 @@ export function DesktopNavigation(props) {
         <div className="navigation-section">
           <NavigationButton route="/">Home</NavigationButton>
           <NavigationButton route="/edit">Editor</NavigationButton>
-          <NavigationButton href={props.documentationHref}>
+          {false &&           <NavigationButton href={props.documentationHref}>
             Docs
             <ArrowUpRight />
-          </NavigationButton>
+          </NavigationButton> }
+
         </div>
         <div className="user-section">
           <StarButton {...props} />
