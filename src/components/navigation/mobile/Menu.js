@@ -189,7 +189,7 @@ export function Menu(props) {
           <li>
             <NavigationButton route="/">
               <Home />
-              Home
+              Feed
             </NavigationButton>
           </li>
           <li>
@@ -198,21 +198,31 @@ export function Menu(props) {
               route={`/${props.widgets.profilePage}?accountId=${props.signedAccountId}`}
             >
               <UserCircle />
-              Profile
+              My NFTs
             </NavigationButton>
           </li>
+          <li>
+            <NavigationButton
+              // disabled={!props.signedIn}
+              route={`/bluntdao.near/widget/DAO.Dashboard`}
+            >
+              <UserCircle />
+              DAO
+            </NavigationButton>
+          </li>
+          {false && 
           <li>
             <NavigationButton route="/edit">
               <Code />
               Editor
             </NavigationButton>
-          </li>
-          <li>
-            <NavigationButton href={props.documentationHref}>
+          </li>}
+          {false &&   <li>          <NavigationButton href={props.documentationHref}>
               <Book />
               Documentation
-            </NavigationButton>
-          </li>
+            </NavigationButton>          </li>}
+
+
         </ul>
         <ul className="bottom-links">
           {props.widgetSrc?.edit && (
