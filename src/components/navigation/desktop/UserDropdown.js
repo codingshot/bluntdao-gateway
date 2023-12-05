@@ -20,7 +20,7 @@ const StyledDropdown = styled.div`
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: var(--slate-dark-5);
+    background-color: var(--main-color);
     border-radius: 50px;
     outline: none;
     border: 0;
@@ -46,7 +46,7 @@ const StyledDropdown = styled.div`
       }
 
       .profile-name {
-        color: var(--slate-dark-12);
+        color: white;
       }
       .profile-username {
         color: var(--slate-dark-11);
@@ -55,7 +55,7 @@ const StyledDropdown = styled.div`
   }
 
   ul {
-    background-color: var(--slate-dark-5);
+    background-color: var(--main-color);
     width: 100%;
 
     li {
@@ -64,7 +64,7 @@ const StyledDropdown = styled.div`
 
     button,
     a {
-      color: var(--slate-dark-11);
+      color: white;
       display: flex;
       align-items: center;
       border-radius: 8px;
@@ -73,7 +73,7 @@ const StyledDropdown = styled.div`
       :hover,
       :focus {
         text-decoration: none;
-        background-color: var(--slate-dark-1);
+        background-color: var(--main-dark);
         color: white;
 
         svg {
@@ -87,7 +87,8 @@ const StyledDropdown = styled.div`
         margin-right: 7px;
         min-width: 24px;
         path {
-          stroke: var(--slate-dark-9);
+          stroke: white;
+          fill: white;
         }
       }
     }

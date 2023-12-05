@@ -30,7 +30,7 @@ const StyledDropdown = styled.div`
       justify-content: space-evenly;
 
       div {
-        background-color: var(--slate-dark-11);
+        background-color: white;
         height: 2px;
         width: 100%;
         border-radius: 30px;
@@ -40,7 +40,7 @@ const StyledDropdown = styled.div`
     :hover {
       .menu {
         div {
-          background-color: white;
+          background-color: var(--main-color);
         }
       }
     }
@@ -56,7 +56,7 @@ const StyledDropdown = styled.div`
 
     button,
     a {
-      color: var(--slate-dark-11);
+      color: white;
       display: flex;
       align-items: center;
       border-radius: 8px;
