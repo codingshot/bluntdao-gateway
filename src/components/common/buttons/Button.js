@@ -2,14 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  border-radius: 8px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent;
-  padding: 8px 16px;
-  font-weight: var(--font-weight-bold);
-  display: inline-block;
-  height: 40px;
+  border-radius: 2em;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 400;
+  height: 3.5em;
+  justify-content: center;
+  max-width: 14em;
+  padding: 0.9em 3em;
+  text-align: center;
+  transition: background 0.3s;
+  width: 100%;
+  &:hover {
+    background: var(--main-dark);
+  }
 `;
 
 export function Button(props) {

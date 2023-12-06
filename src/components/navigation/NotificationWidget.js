@@ -16,7 +16,7 @@ const StyledNotificationWidget = styled.div`
   }
 
   a {
-    color: var(--slate-dark-11) !important;
+    color: white !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@ const StyledNotificationWidget = styled.div`
   :hover {
     a,
     i {
-      color: white;
+      color: var(--main-color);
     }
   }
 `;

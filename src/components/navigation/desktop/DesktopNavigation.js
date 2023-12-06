@@ -21,7 +21,6 @@ const StyledNavigation = styled.div`
   padding: 12px 0;
 
   .user-section {
-    margin-left: auto;
     > button {
       font-size: 14px;
     }
@@ -32,7 +31,7 @@ const StyledNavigation = styled.div`
     align-items: center;
 
     .navigation-section {
-      margin-left: 50px;
+      margin-left: auto;
       display: flex;
 
       > div {
@@ -76,14 +75,22 @@ export function DesktopNavigation(props) {
         </Link>
         <div className="navigation-section">
           <NavigationButton route="/">Feed</NavigationButton>
-          <NavigationButton route="/bluntdao.near/widget/BluntDAO.Holders.OGValidators">Members</NavigationButton>
-          {false &&           <NavigationButton href={props.documentationHref}>
-            Docs
-            <ArrowUpRight />
-          </NavigationButton> }
-          
-          <NavigationButton route="/bluntdao.near/widget/DAO.Dashboard" props={{daoId: "blunt.sputnik-dao.near"}}>DAO</NavigationButton>
+          <NavigationButton route="/bluntdao.near/widget/BluntDAO.Holders.OGValidators">
+            Members
+          </NavigationButton>
+          {false && (
+            <NavigationButton href={props.documentationHref}>
+              Docs
+              <ArrowUpRight />
+            </NavigationButton>
+          )}
 
+          <NavigationButton
+            route="/bluntdao.near/widget/DAO.Dashboard"
+            props={{ daoId: "blunt.sputnik-dao.near" }}
+          >
+            DAO
+          </NavigationButton>
         </div>
         <div className="user-section">
           <StarButton {...props} />
