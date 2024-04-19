@@ -1,37 +1,35 @@
-import React, { useCallback, useEffect, useState } from "react";
-import "error-polyfill";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "@near-wallet-selector/modal-ui/styles.css";
-import "react-bootstrap-typeahead/css/Typeahead.css";
-import "react-bootstrap-typeahead/css/Typeahead.bs5.css";
-import "bootstrap/dist/js/bootstrap.bundle";
-import "App.scss";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import EditorPage from "./pages/EditorPage";
-import ViewPage from "./pages/ViewPage";
 import { setupWalletSelector } from "@near-wallet-selector/core";
-import { setupNearWallet } from "@near-wallet-selector/near-wallet";
-import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
-import { setupSender } from "@near-wallet-selector/sender";
 import { setupHereWallet } from "@near-wallet-selector/here-wallet";
 import { setupMeteorWallet } from "@near-wallet-selector/meteor-wallet";
+import { setupModal } from "@near-wallet-selector/modal-ui";
+import "@near-wallet-selector/modal-ui/styles.css";
+import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import { setupNeth } from "@near-wallet-selector/neth";
 import { setupNightly } from "@near-wallet-selector/nightly";
-import { setupModal } from "@near-wallet-selector/modal-ui";
-import EmbedPage from "./pages/EmbedPage";
+import { setupSender } from "@near-wallet-selector/sender";
+import "App.scss";
+import Big from "big.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/js/bootstrap.bundle";
+import { isValidAttribute } from "dompurify";
+import "error-polyfill";
 import {
+  EthersProviderContext,
   useAccount,
   useInitNear,
   useNear,
   utils,
-  EthersProviderContext,
 } from "near-social-vm";
-import Big from "big.js";
+import React, { useCallback, useEffect, useState } from "react";
+import "react-bootstrap-typeahead/css/Typeahead.bs5.css";
+import "react-bootstrap-typeahead/css/Typeahead.css";
+import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { NavigationWrapper } from "./components/navigation/NavigationWrapper";
-import { NetworkId, Widgets } from "./data/widgets";
 import { useEthersProviderContext } from "./data/web3";
+import { NetworkId, Widgets } from "./data/widgets";
+import EmbedPage from "./pages/EmbedPage";
 import SignInPage from "./pages/SignInPage";
-import { isValidAttribute } from "dompurify";
+import ViewPage from "./pages/ViewPage";
 
 export const refreshAllowanceObj = {};
 const documentationHref = "https://social.near-docs.io/";
@@ -59,7 +57,6 @@ function App(props) {
         selector: setupWalletSelector({
           network: NetworkId,
           modules: [
-            setupNearWallet(),
             setupMyNearWallet(),
             setupSender(),
             setupHereWallet(),
@@ -78,9 +75,11 @@ function App(props) {
               delete props.href;
             }
             if (props.to) {
-              props.to = isValidAttribute("a", "href", props.to)
-                ? props.to
-                : "about:blank";
+              props.to =
+                typeof props.to === "string" &&
+                isValidAttribute("a", "href", props.to)
+                  ? props.to
+                  : "about:blank";
             }
             return <Link {...props} />;
           },
@@ -173,10 +172,6 @@ function App(props) {
             </Route>
             <Route path={"/embed/:widgetSrc*"}>
               <EmbedPage {...passProps} />
-            </Route>
-            <Route path={"/edit/:widgetSrc*"}>
-              <NavigationWrapper {...passProps} />
-              <EditorPage {...passProps} />
             </Route>
             <Route path={"/:widgetSrc*"}>
               <NavigationWrapper {...passProps} />
