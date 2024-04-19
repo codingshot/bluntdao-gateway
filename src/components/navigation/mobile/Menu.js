@@ -204,7 +204,7 @@ export function Menu(props) {
           <li>
             <NavigationButton
               // disabled={!props.signedIn}
-              route={`/bluntdao.near/widget/DAO.Dashboard`}
+              route={`/bos.bluntdao.near/widget/DAO.Dashboard`}
             >
               <UserCircle />
               DAO

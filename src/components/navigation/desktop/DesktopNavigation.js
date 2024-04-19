@@ -75,7 +75,7 @@ export function DesktopNavigation(props) {
         </Link>
         <div className="navigation-section">
           <NavigationButton route="/">Feed</NavigationButton>
-          <NavigationButton route="/bluntdao.near/widget/BluntDAO.Holders.OGValidators">
+          <NavigationButton route="/bos.bluntdao.near/widget/BluntDAO.Holders.OGValidators">
             Members
           </NavigationButton>
           {false && (
@@ -86,7 +86,7 @@ export function DesktopNavigation(props) {
           )}
 
           <NavigationButton
-            route="/bluntdao.near/widget/DAO.Dashboard"
+            route="/bos.bluntdao.near/widget/DAO.Dashboard"
             props={{ daoId: "blunt.sputnik-dao.near" }}
           >
             DAO
